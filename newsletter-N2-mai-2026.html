@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxi Conseil — IRD™ La Newsletter N°2</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f3f1ec;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a2e;
+    line-height: 1.55;
+  }
+  .wrapper {
+    max-width: 640px;
+    margin: 24px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(26, 26, 46, 0.08);
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    color: #fff;
+    padding: 32px 36px 28px 36px;
+    position: relative;
+  }
+  .header .brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 4px 0;
+  }
+  .header .sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a5a1d4;
+    text-transform: uppercase;
+  }
+  .header .issue {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    text-align: right;
+  }
+  .header .issue .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .header .issue .date {
+    font-size: 12px;
+    color: #a5a1d4;
+  }
+  .banner {
+    background: #2d2a5c;
+    color: #d8d4ff;
+    padding: 12px 36px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .banner .dot {
+    color: #ff6b4a;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 36px 24px 12px 24px;
+    gap: 12px;
+    background: #fbfaf6;
+    border-bottom: 1px solid #ece9e2;
+  }
+  .stat {
+    flex: 1 1 170px;
+    text-align: center;
+    padding: 18px 10px;
+  }
+  .stat .num {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .stat .num.violet { color: #4f46e5; }
+  .stat .num.coral  { color: #e8502c; }
+  .stat .num.dark   { color: #1a1a2e; }
+  .stat .label {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .stat .source {
+    font-size: 10.5px;
+    color: #8a8799;
+    margin-top: 4px;
+  }
+  .section { padding: 32px 36px; }
+  .section + .section { border-top: 1px solid #ece9e2; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .eyebrow.coral { color: #e8502c; }
+  h2 {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+  }
+  h2.big {
+    font-size: 26px;
+  }
+  p { font-size: 15px; margin: 0 0 14px 0; color: #2e2c40; }
+  p.lead { font-size: 16px; color: #1a1a2e; }
+  .edito p { font-size: 15.5px; }
+  .signature {
+    font-style: italic;
+    color: #6b6880;
+    font-size: 14px;
+    margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid #4f46e5;
+    background: #f5f4ff;
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 22px 0 10px 0;
+  }
+  .callout p { margin: 0; font-size: 15px; color: #1a1a2e; }
+  .callout strong { color: #1a1a2e; }
+  .hero-number {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 30px 28px;
+    border-radius: 12px;
+    margin: 0 0 20px 0;
+  }
+  .hero-number .giant {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ff6b4a;
+    letter-spacing: -3px;
+  }
+  .hero-number .giant .unit {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .hero-number .caption {
+    font-size: 15px;
+    color: #d8d4ff;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .terrain-block {
+    background: #fff6f1;
+    border: 1px solid #ffd9c7;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .terrain-block .tag {
+    display: inline-block;
+    background: #e8502c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .terrain-block p { font-size: 14.5px; color: #3a2414; margin: 0; }
+  .action {
+    padding: 22px 24px;
+    background: #fbfaf6;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #ece9e2;
+  }
+  .action-num {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .action h3 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #1a1a2e;
+    letter-spacing: -0.3px;
+  }
+  .action p { font-size: 14.5px; margin-bottom: 10px; }
+  .action p:last-child { margin-bottom: 0; }
+  .action .time {
+    font-size: 12px;
+    color: #6b6880;
+    font-weight: 600;
+  }
+  .cta {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    padding: 38px 36px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta h3 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: #fff;
+  }
+  .cta p {
+    color: #d8d4ff;
+    font-size: 14.5px;
+    margin: 0 0 22px 0;
+  }
+  .cta a {
+    display: inline-block;
+    background: #ff6b4a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .footer {
+    background: #0f0e1c;
+    padding: 26px 36px;
+    color: #a5a1d4;
+    font-size: 12.5px;
+    text-align: center;
+  }
+  .footer strong { color: #fff; }
+  .footer .tag {
+    color: #d8d4ff;
+    font-style: italic;
+    margin: 8px 0 14px 0;
+    font-size: 13px;
+  }
+  .footer a { color: #8a86c4; text-decoration: underline; }
+  .sources {
+    font-size: 12px;
+    color: #8a8799;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="brand">Proxi Conseil</div>
+    <div class="sub">IRD™ · La Newsletter</div>
+    <div class="issue">
+      <div class="num">N°2</div>
+      <div class="date">Mai 2026</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <span class="dot">●</span> Chaque mois : un décryptage économique · 3 actions concrètes · le chiffre qui dérange
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num violet">1&nbsp;sur&nbsp;4</div>
+      <div class="label">Faillites PME liées aux délais de paiement</div>
+      <div class="source">Système Project, 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num coral">+6,4%</div>
+      <div class="label">Défaillances d'entreprises au T1 2026</div>
+      <div class="source">Altares, avril 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num dark">20%</div>
+      <div class="label">Le seuil à partir duquel un client devient un risque</div>
+      <div class="source">Seuil de vigilance reconnu</div>
+    </div>
+  </div>
+
+  <div class="section edito">
+    <div class="eyebrow">Édito</div>
+    <h2>Votre chiffre d'affaires grimpe. Et si c'était ça qui vous fragilisait&nbsp;?</h2>
+    <p>Beaucoup de dirigeants que je rencontre ne sont pas en crise. Ils grandissent. Plus de clients, plus de prestations, plus de facturation. Et pourtant, quelque chose se resserre sans qu'ils sachent nommer quoi.</p>
+    <p>Ce mois-ci, trois chiffres disent la même chose : on peut développer son activité et affaiblir son entreprise en même temps. Les chiffres le disent avant les comptes.</p>
+    <p class="signature">— Sylvie Godereaux, Proxi Conseil</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Décryptage du mois</div>
+    <h2 class="big">Le paradoxe de la croissance&nbsp;: quand grandir fragilise</h2>
+
+    <p class="lead">19 000 défaillances au premier trimestre 2026. +6,4 % en un an. Et dans la majorité des cas, des entreprises dont le chiffre d'affaires progressait encore douze mois avant le dépôt de bilan.</p>
+
+    <p>Ce que l'on appelle "une bonne année commerciale" peut cacher une lente érosion. Plus de clients signifie plus de BFR à financer. Plus de gros contrats signifie plus de dépendance. Plus de projets signifie plus de délais de paiement subis. Sur une trajectoire qui semble saine, trois mécanismes se combinent&nbsp;:</p>
+
+    <p><strong>1. Les délais de paiement allongent la corde.</strong> Aujourd'hui, une faillite de PME sur quatre s'explique directement par des délais clients qui dérapent. Plus vous vendez, plus vous avancez de la trésorerie à vos clients — sans toujours le voir.</p>
+
+    <p><strong>2. La dépendance client se construit par accident.</strong> Un contrat qui marche, un autre qui suit, et sans décision explicite, 35 % du CA repose sur un donneur d'ordre. Le jour où il renégocie, il n'a pas besoin de dire non&nbsp;: il dit "moins cher".</p>
+
+    <p><strong>3. La marge s'efface derrière le volume.</strong> Dans l'événementiel, les services aux entreprises, l'artisanat d'art, les budgets baissent alors que les exigences montent. Le CA tient. Le résultat, moins.</p>
+
+    <div class="callout">
+      <p><strong>Ce que cela signifie pour vous&nbsp;:</strong> regarder uniquement le chiffre d'affaires, c'est piloter une voiture en ne lisant que le compteur de vitesse. Ça monte, donc ça va. Sauf que le voyant moteur, lui, clignote depuis trois mois.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow coral">Le chiffre du mois</div>
+
+    <div class="hero-number">
+      <div class="giant">72<span class="unit">%</span></div>
+      <div class="caption">des artisans se déclarent aujourd'hui en fragilité financière, dans un secteur où les créations battent pourtant des records.</div>
+    </div>
+
+    <p>Ce paradoxe résume bien la période. Le tissu se renouvelle vite, mais les structures qui existent se fragilisent. On confond dynamisme du marché et solidité individuelle. Ce sont deux lectures différentes&nbsp;: l'une regarde le secteur, l'autre regarde votre entreprise.</p>
+
+    <p>La confiance ne remplace pas la lecture. Sentir que "ça va" et savoir où l'on en est ne produisent pas les mêmes décisions.</p>
+
+    <div class="terrain-block">
+      <span class="tag">Vu sur le terrain</span>
+      <p>Un dirigeant me disait récemment&nbsp;: "On a signé notre meilleur trimestre." En regardant ses chiffres ensemble, on a vu que ce trimestre avait en réalité consommé 40 % de sa trésorerie disponible. Sa bonne nouvelle était un signal d'alerte.</p>
+    </div>
+
+    <p class="sources">Sources&nbsp;: Altares · Baromètre CMA Nouvelle-Aquitaine · Bpifrance Le Lab / Rexecode · Le Blog du Dirigeant</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">3 actions pour ce mois</div>
+
+    <div class="action">
+      <div class="action-num">Action 01 · 30 minutes</div>
+      <h3>Calculez le poids réel de votre premier client</h3>
+      <p>Prenez le CA encaissé sur les douze derniers mois. Divisez le montant de votre plus gros client par ce total. Faites la même chose pour les trois suivants.</p>
+      <p>Au-delà de 20 %, un client cesse d'être un client&nbsp;: il devient un facteur de risque. Au-delà de 30 %, son départ peut mettre l'entreprise en péril en moins de six mois.</p>
+      <p><strong>La vraie question&nbsp;:</strong> combien de mois tenez-vous si ce client part demain&nbsp;?</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 02 · 1 heure</div>
+      <h3>Mesurez votre délai de paiement réel</h3>
+      <p>Additionnez le montant de vos factures émises sur les 90 derniers jours. Divisez par le montant encaissé sur la même période. Multipliez par 90. Vous obtenez votre délai moyen de règlement réel — pas celui de vos conditions commerciales.</p>
+      <p>Si l'écart entre les deux dépasse 15 jours, vous financez vos clients avec votre propre trésorerie. Gratuitement. Et silencieusement.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 03 · 2 heures, une fois par trimestre</div>
+      <h3>Identifiez vos 20 % de clients qui portent 80 % du résultat</h3>
+      <p>Pour chaque client ou type de prestation, estimez le CA généré et le temps réel passé. Classez. Certains clients visibles rapportent peu. D'autres, plus discrets, sont vos meilleurs contributeurs.</p>
+      <p>Ce classement ne sert pas à licencier des clients. Il sert à savoir où mettre votre énergie commerciale pour les six mois qui viennent.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Et si vos chiffres vous parlaient&nbsp;?</h3>
+    <p>L'IRD™ lit vos chiffres. Les confronte à ce que vous croyez savoir. Et vous dit où vous en êtes vraiment — en une séance, pas en trois mois.</p>
+    <a href="https://proxiconseil.fr">Découvrir l'IRD™</a>
+  </div>
+
+  <div class="footer">
+    <strong>Sylvie Godereaux · Proxi Conseil IRD™</strong>
+    <div class="tag">Vos chiffres en savent plus que vous ne croyez.</div>
+    <a href="https://proxiconseil.fr">proxiconseil.fr</a> &nbsp;·&nbsp; <a href="#">Se désabonner</a>
+  </div>
+
+</div>
+</body>
+</html>

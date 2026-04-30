@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxi Conseil — IRD™ La Newsletter N°1</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f3f1ec;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a2e;
+    line-height: 1.55;
+  }
+  .wrapper {
+    max-width: 640px;
+    margin: 24px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(26, 26, 46, 0.08);
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    color: #fff;
+    padding: 32px 36px 28px 36px;
+    position: relative;
+  }
+  .header .brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 4px 0;
+  }
+  .header .sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a5a1d4;
+    text-transform: uppercase;
+  }
+  .header .issue {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    text-align: right;
+  }
+  .header .issue .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .header .issue .date {
+    font-size: 12px;
+    color: #a5a1d4;
+  }
+  .banner {
+    background: #2d2a5c;
+    color: #d8d4ff;
+    padding: 12px 36px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .banner .dot {
+    color: #ff6b4a;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 36px 24px 12px 24px;
+    gap: 12px;
+    background: #fbfaf6;
+    border-bottom: 1px solid #ece9e2;
+  }
+  .stat {
+    flex: 1 1 170px;
+    text-align: center;
+    padding: 18px 10px;
+  }
+  .stat .num {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .stat .num.violet { color: #4f46e5; }
+  .stat .num.coral  { color: #e8502c; }
+  .stat .num.dark   { color: #1a1a2e; }
+  .stat .label {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .stat .source {
+    font-size: 10.5px;
+    color: #8a8799;
+    margin-top: 4px;
+  }
+  .section { padding: 32px 36px; }
+  .section + .section { border-top: 1px solid #ece9e2; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .eyebrow.coral { color: #e8502c; }
+  h2 {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+  }
+  h2.big { font-size: 26px; }
+  p { font-size: 15px; margin: 0 0 14px 0; color: #2e2c40; }
+  p.lead { font-size: 16px; color: #1a1a2e; }
+  .edito p { font-size: 15.5px; }
+  .signature {
+    font-style: italic;
+    color: #6b6880;
+    font-size: 14px;
+    margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid #4f46e5;
+    background: #f5f4ff;
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 22px 0 10px 0;
+  }
+  .callout p { margin: 0; font-size: 15px; color: #1a1a2e; }
+  .callout strong { color: #1a1a2e; }
+  .hero-number {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 30px 28px;
+    border-radius: 12px;
+    margin: 0 0 20px 0;
+  }
+  .hero-number .giant {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ff6b4a;
+    letter-spacing: -3px;
+  }
+  .hero-number .giant .unit {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .hero-number .caption {
+    font-size: 15px;
+    color: #d8d4ff;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .terrain-block {
+    background: #fff6f1;
+    border: 1px solid #ffd9c7;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .terrain-block .tag {
+    display: inline-block;
+    background: #e8502c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .terrain-block p { font-size: 14.5px; color: #3a2414; margin: 0; }
+  .action {
+    padding: 22px 24px;
+    background: #fbfaf6;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #ece9e2;
+  }
+  .action-num {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .action h3 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #1a1a2e;
+    letter-spacing: -0.3px;
+  }
+  .action p { font-size: 14.5px; margin-bottom: 10px; }
+  .action p:last-child { margin-bottom: 0; }
+  .action .time {
+    font-size: 12px;
+    color: #6b6880;
+    font-weight: 600;
+  }
+  .cta {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    padding: 38px 36px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta h3 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: #fff;
+  }
+  .cta p {
+    color: #d8d4ff;
+    font-size: 14.5px;
+    margin: 0 0 22px 0;
+  }
+  .cta a {
+    display: inline-block;
+    background: #ff6b4a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .footer {
+    background: #0f0e1c;
+    padding: 26px 36px;
+    color: #a5a1d4;
+    font-size: 12.5px;
+    text-align: center;
+  }
+  .footer strong { color: #fff; }
+  .footer .tag {
+    color: #d8d4ff;
+    font-style: italic;
+    margin: 8px 0 14px 0;
+    font-size: 13px;
+  }
+  .footer a { color: #8a86c4; text-decoration: underline; }
+  .sources {
+    font-size: 12px;
+    color: #8a8799;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="brand">Proxi Conseil</div>
+    <div class="sub">IRD™ · La Newsletter</div>
+    <div class="issue">
+      <div class="num">N°1</div>
+      <div class="date">Avril 2026</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <span class="dot">●</span> Chaque mois : un décryptage économique · 3 actions concrètes · le chiffre qui dérange
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num violet">2,25%</div>
+      <div class="label">Taux d'intérêt moyen des crédits TPE/PME</div>
+      <div class="source">Banque de France, T3 2025</div>
+    </div>
+    <div class="stat">
+      <div class="num coral">68%</div>
+      <div class="label">Des défaillances précédées d'un bilan jugé acceptable</div>
+      <div class="source">Charte de confiance, 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num dark">45j</div>
+      <div class="label">Délai moyen de paiement réel, +8 jours vs 2023</div>
+      <div class="source">Observatoire des délais de paiement</div>
+    </div>
+  </div>
+
+  <div class="section edito">
+    <div class="eyebrow">Édito</div>
+    <h2>L'accès au crédit se resserre. Les signaux faibles s'accumulent. Et la plupart des dirigeants ne les voient pas encore.</h2>
+    <p>Ce mois-ci, trois chiffres disent la même chose : les difficultés n'apparaissent pas dans les comptes. Elles apparaissent d'abord dans les comportements — retards qui s'allongent, trésorerie qui se resserre mois après mois, client stratégique qui ralentit ses commandes.</p>
+    <p>Ce que la Banque de France, les tribunaux de commerce et le terrain confirment ensemble : les entreprises qui défaillent n'étaient pas en crise douze mois avant. Elles avaient simplement des signaux que personne ne lisait.</p>
+    <p class="signature">— Sylvie Godereaux, Proxi Conseil</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Décryptage du mois</div>
+    <h2 class="big">Crédit, défaillances, délais : ce que les chiffres de 2026 disent vraiment</h2>
+
+    <p class="lead">69 392 défaillances d'entreprises sur douze mois glissants. Un record historique. Les TPE représentent l'essentiel du total. Et dans la grande majorité des cas, des structures dont le bilan semblait acceptable douze mois plus tôt.</p>
+
+    <p>Trois mécanismes se combinent pour produire ce résultat :</p>
+
+    <p><strong>1. Le crédit se paie plus cher qu'on ne le croit.</strong> À 2,25 % de taux moyen, le coût apparent du crédit TPE semble supportable. Ce que ce chiffre ne dit pas : c'est le taux accordé. Pas le taux demandé. 28 % des TPE qui sollicitent un financement se voient opposer un refus ou des conditions qui rendent l'opération non viable. Le crédit existe — il n'est pas distribué également.</p>
+
+    <p><strong>2. Les défaillances ne sont pas des surprises.</strong> 68 % des entreprises qui déposent le bilan avaient un bilan comptable jugé acceptable douze mois avant. Ce n'est pas un paradoxe : c'est la preuve que les bilans annuels ne lisent pas la résistance structurelle. Ils lisent une photographie. Pas une trajectoire.</p>
+
+    <p><strong>3. Les délais de paiement sont devenus un financement invisible.</strong> À 45 jours de délai moyen réel — contre 37 jours en 2023 — chaque TPE qui facture avance en moyenne un mois et demi de trésorerie à ses clients. Gratuitement. Et silencieusement.</p>
+
+    <div class="callout">
+      <p><strong>Ce que cela signifie pour vous :</strong> les difficultés n'arrivent pas d'un coup. Elles s'installent progressivement, dans des mécanismes que les comptes annuels ne capturent pas. Un retard de paiement isolé. Une marge qui s'érode de deux points par an. Un client stratégique qui négocie plus dur. Pris séparément, ça ne fait pas peur. Croisés, ça raconte autre chose.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow coral">Le chiffre qui dérange</div>
+
+    <div class="hero-number">
+      <div class="giant">22<span class="unit">%</span></div>
+      <div class="caption">des dirigeants de TPE/PME déclarent avoir rencontré des difficultés sérieuses d'accès au financement en 2025 — alors que leur activité progressait.</div>
+    </div>
+
+    <p>Progresser et se fragiliser en même temps. C'est le paradoxe de nombreuses structures qui grandissent sans lecture de leur résistance réelle. Plus de CA, plus de BFR à financer, plus de dépendance aux délais clients — sans que personne ne mesure où se situe le seuil de rupture.</p>
+
+    <p>La confiance ne remplace pas la lecture. Sentir que "ça va" et savoir où l'on en est ne produisent pas les mêmes décisions.</p>
+
+    <div class="terrain-block">
+      <span class="tag">Vu sur le terrain</span>
+      <p>Un dirigeant me disait récemment : "Les chiffres sont bons." En regardant ensemble ses ratios croisés, on a vu que ses charges fixes représentaient 71 % de son CA moyen. Un mois creux de 15 % suffisait à passer dans le rouge. Ses chiffres étaient bons. Sa résistance, non.</p>
+    </div>
+
+    <p class="sources">Sources : Banque de France · Bpifrance Le Lab / Rexecode · Observatoire des délais de paiement · Charte de confiance entreprises 2026</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">3 actions pour ce mois</div>
+
+    <div class="action">
+      <div class="action-num">Action 01 · 30 minutes</div>
+      <h3>Construisez votre prévisionnel de trésorerie à 12 mois</h3>
+      <p>Prenez vos 12 derniers relevés bancaires. Calculez votre moyenne mensuelle d'encaissements et de décaissements. Ajustez les mois atypiques — vacances, pic d'activité, échéance fiscale. Projetez sur 12 mois.</p>
+      <p>L'objectif n'est pas la précision. C'est de voir les creux trois mois avant qu'ils arrivent — et d'avoir le temps d'agir.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 02 · 1 heure, une fois par trimestre</div>
+      <h3>Analysez votre rentabilité par client</h3>
+      <p>Pour chaque client ou prestation, estimez le chiffre d'affaires généré et le temps réel passé. Divisez. Certains clients à gros CA vous coûtent plus qu'ils ne rapportent. D'autres, plus discrets, sont vos meilleurs contributeurs.</p>
+      <p>Ce classement oriente vos décisions de prospection et de tarification pour les six mois qui viennent.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 03 · 2 heures par semaine</div>
+      <h3>Bloquez du temps pour voir, pas pour faire</h3>
+      <p>Pas de rendez-vous. Pas de chantier. Deux heures dans votre agenda, récurrentes, intouchables. Le dirigeant passe l'essentiel de son temps dans son entreprise. Rarement sur son entreprise.</p>
+      <p>C'est dans ces deux heures que les signaux faibles deviennent lisibles — avant qu'ils se croisent.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Vos chiffres racontent une histoire.</h3>
+    <p>L'IRD™ lit vos chiffres. Les confronte à votre secteur. Et vous dit où vous en êtes vraiment — avant que la question devienne urgente.</p>
+    <a href="https://proxiconseil.fr">Découvrir l'IRD™</a>
+  </div>
+
+  <div class="footer">
+    <strong>Sylvie Godereaux · Proxi Conseil IRD™</strong>
+    <div class="tag">Vos chiffres en savent plus que vous ne croyez.</div>
+    <a href="https://proxiconseil.fr">proxiconseil.fr</a> &nbsp;·&nbsp; <a href="#">Se désabonner</a>
+  </div>
+
+</div>
+</body>
+</html>
