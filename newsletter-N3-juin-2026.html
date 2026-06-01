@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxi Conseil — IRD™ La Newsletter N°3</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f3f1ec;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a2e;
+    line-height: 1.55;
+  }
+  .wrapper {
+    max-width: 640px;
+    margin: 24px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(26, 26, 46, 0.08);
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    color: #fff;
+    padding: 32px 36px 28px 36px;
+    position: relative;
+  }
+  .header .brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 4px 0;
+  }
+  .header .sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a5a1d4;
+    text-transform: uppercase;
+  }
+  .header .issue {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    text-align: right;
+  }
+  .header .issue .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .header .issue .date {
+    font-size: 12px;
+    color: #a5a1d4;
+  }
+  .banner {
+    background: #2d2a5c;
+    color: #d8d4ff;
+    padding: 12px 36px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .banner .dot {
+    color: #ff6b4a;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 36px 24px 12px 24px;
+    gap: 12px;
+    background: #fbfaf6;
+    border-bottom: 1px solid #ece9e2;
+  }
+  .stat {
+    flex: 1 1 170px;
+    text-align: center;
+    padding: 18px 10px;
+  }
+  .stat .num {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .stat .num.violet { color: #4f46e5; }
+  .stat .num.coral  { color: #e8502c; }
+  .stat .num.dark   { color: #1a1a2e; }
+  .stat .label {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .stat .source {
+    font-size: 10.5px;
+    color: #8a8799;
+    margin-top: 4px;
+  }
+  .section { padding: 32px 36px; }
+  .section + .section { border-top: 1px solid #ece9e2; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .eyebrow.coral { color: #e8502c; }
+  .eyebrow.gold  { color: #9a7d20; }
+  h2 {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+  }
+  h2.big { font-size: 26px; }
+  p { font-size: 15px; margin: 0 0 14px 0; color: #2e2c40; }
+  p.lead { font-size: 16px; color: #1a1a2e; }
+  .edito p { font-size: 15.5px; }
+  .signature {
+    font-style: italic;
+    color: #6b6880;
+    font-size: 14px;
+    margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid #4f46e5;
+    background: #f5f4ff;
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 22px 0 10px 0;
+  }
+  .callout p { margin: 0; font-size: 15px; color: #1a1a2e; }
+  .callout strong { color: #1a1a2e; }
+  .hero-number {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 30px 28px;
+    border-radius: 12px;
+    margin: 0 0 20px 0;
+  }
+  .hero-number .giant {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ff6b4a;
+    letter-spacing: -3px;
+  }
+  .hero-number .giant .unit {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .hero-number .caption {
+    font-size: 15px;
+    color: #d8d4ff;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .terrain-block {
+    background: #fff6f1;
+    border: 1px solid #ffd9c7;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .terrain-block .tag {
+    display: inline-block;
+    background: #e8502c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .terrain-block p { font-size: 14.5px; color: #3a2414; margin: 0; }
+  .action {
+    padding: 22px 24px;
+    background: #fbfaf6;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #ece9e2;
+  }
+  .action-num {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4f46e5;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .action h3 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #1a1a2e;
+    letter-spacing: -0.3px;
+  }
+  .action p { font-size: 14.5px; margin-bottom: 10px; }
+  .action p:last-child { margin-bottom: 0; }
+  .cession-block {
+    background: #f6faf7;
+    border: 1px solid #c4ddc8;
+    border-radius: 12px;
+    padding: 28px 28px 24px 28px;
+    margin-top: 28px;
+  }
+  .cession-block .cession-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 16px 0 20px 0;
+  }
+  .cession-block .cstat {
+    flex: 1 1 120px;
+    text-align: center;
+  }
+  .cession-block .cstat .cnum {
+    font-size: 28px;
+    font-weight: 800;
+    color: #9a7d20;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .cession-block .cstat .clabel {
+    font-size: 11.5px;
+    color: #4a5040;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .cession-block h3 {
+    font-size: 19px;
+    color: #1a1a2e;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.4px;
+  }
+  .cession-block p {
+    font-size: 14.5px;
+    color: #3a3a28;
+    margin: 0 0 18px 0;
+  }
+  .cession-block .cta-btn {
+    display: inline-block;
+    background: #C9A844;
+    color: #1a1a0c;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: 40px;
+    font-size: 13.5px;
+    letter-spacing: 0.2px;
+  }
+  .cession-block .reassurance {
+    font-size: 11px;
+    color: #7a8070;
+    margin-top: 10px;
+    display: block;
+  }
+  .cta {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2a5c 100%);
+    padding: 38px 36px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta h3 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: #fff;
+  }
+  .cta p {
+    color: #d8d4ff;
+    font-size: 14.5px;
+    margin: 0 0 22px 0;
+  }
+  .cta a {
+    display: inline-block;
+    background: #ff6b4a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .footer {
+    background: #0f0e1c;
+    padding: 26px 36px;
+    color: #a5a1d4;
+    font-size: 12.5px;
+    text-align: center;
+  }
+  .footer strong { color: #fff; }
+  .footer .tag {
+    color: #d8d4ff;
+    font-style: italic;
+    margin: 8px 0 14px 0;
+    font-size: 13px;
+  }
+  .footer a { color: #8a86c4; text-decoration: underline; }
+  .sources {
+    font-size: 12px;
+    color: #8a8799;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="brand">Proxi Conseil</div>
+    <div class="sub">IRD™ · La Newsletter</div>
+    <div class="issue">
+      <div class="num">N°3</div>
+      <div class="date">Juin 2026</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <span class="dot">●</span> Chaque mois : un décryptage économique · 3 actions concrètes · le chiffre qui dérange
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num violet">34%</div>
+      <div class="label">Des TPE-PME en situation de trésorerie difficile</div>
+      <div class="source">Bpifrance / Rexecode, T2 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num coral">62%</div>
+      <div class="label">Des TPE-PME impactées par le conflit au Moyen-Orient</div>
+      <div class="source">Bpifrance / Rexecode, mai 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num dark">13j</div>
+      <div class="label">Retard moyen de paiement en 2026, contre 11,9j fin 2023</div>
+      <div class="source">Banque de France, 2026</div>
+    </div>
+  </div>
+
+  <div class="section edito">
+    <div class="eyebrow">Édito</div>
+    <h2>Ce que votre banque lit dans votre dossier. Ce que vous ne lisez pas encore.</h2>
+    <p>Ce mois-ci, trois chiffres disent la même chose. L'accès au crédit se resserre. Pas pour tout le monde — pour ceux dont la structure n'est pas lisible de l'extérieur.</p>
+    <p>Un bilan peut sembler correct et ne pas parler la langue de la banque. Ces deux choses ne sont pas la même chose. Ce que votre banquier regarde, ce sont des ratios que la plupart des dirigeants n'ont jamais calculés eux-mêmes.</p>
+    <p class="signature">— Sylvie Godereaux, Proxi Conseil</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Décryptage du mois</div>
+    <h2 class="big">Ce que la banque lit — et ce que vos comptes ne disent pas</h2>
+
+    <p class="lead">L'indicateur de trésorerie Bpifrance atteint -28, son niveau le plus bas depuis 2018. 34 % des TPE-PME sont en situation difficile. Ce n'est pas une surprise. C'est le résultat de trois mécanismes qui agissent simultanément.</p>
+
+    <p><strong>1. Les critères bancaires ont changé sans que personne ne l'annonce.</strong> Le crédit de trésorerie est plus difficile et plus coûteux qu'il y a deux ans. Ce que les banques regardent aujourd'hui : pas seulement le résultat annuel. La structure de financement, le BFR, le ratio endettement sur fonds propres, la lisibilité du reporting mensuel. Une entreprise rentable avec un bilan peu lisible n'obtient pas les mêmes conditions qu'une structure identique bien documentée.</p>
+
+    <p><strong>2. Les délais de paiement s'allongent silencieusement.</strong> Le retard moyen atteint 13 jours en 2026, contre 11,9 jours fin 2023. Une faillite sur quatre est directement liée aux délais qui dérapent. Chaque jour de retard supplémentaire est de la trésorerie que vous avancez sans intérêt, sans garantie, sans décision consciente.</p>
+
+    <p><strong>3. Le paradoxe de l'investissement.</strong> 46 % des dirigeants prévoient d'investir en 2026. Et 15 % déclarent ne pas avoir suffisamment de trésorerie pour absorber un choc extérieur. Ces deux réalités coexistent dans les mêmes entreprises. Ce n'est pas de l'imprudence. C'est de l'opacité — piloter sans lire ce que la structure peut réellement encaisser avant que ça se complique.</p>
+
+    <div class="callout">
+      <p><strong>Ce que cela signifie pour vous :</strong> votre bilan dit-il la même chose que ce que vous croyez ? Une structure lisible obtient du crédit. Une structure solide résiste aux chocs. Ce ne sont pas les mêmes lectures. Et elles ne se construisent pas avec les mêmes outils.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow coral">Le chiffre du mois</div>
+
+    <div class="hero-number">
+      <div class="giant">15<span class="unit">%</span></div>
+      <div class="caption">des TPE-PME déclarent ne pas disposer de suffisamment de trésorerie pour absorber le choc du conflit au Moyen-Orient — alors que 62 % en subissent déjà les conséquences.</div>
+    </div>
+
+    <p>Un choc géopolitique n'était pas dans les prévisions de début d'année. Il ne l'est presque jamais. La question n'est pas d'anticiper tous les chocs. C'est de savoir ce que votre structure peut encaisser avant qu'un événement imprévu ne devienne une crise de trésorerie.</p>
+
+    <p>Ce sont rarement les bonnes entreprises qui tombent. Ce sont les entreprises exposées sans le savoir.</p>
+
+    <div class="terrain-block">
+      <span class="tag">Vu sur le terrain</span>
+      <p>Une dirigeante me partageait son dernier tableau de bord : "Tout va bien, je viens de signer un beau contrat." En regardant ses ratios ensemble, on a vu que ce contrat représentait 38 % de son CA annuel. Une belle nouvelle et un facteur de risque. Les deux en même temps. Ses chiffres le savaient déjà.</p>
+    </div>
+
+    <p class="sources">Sources : Bpifrance Le Lab / Rexecode, T2 2026 · CPME, mai 2026 · Banque de France, 2026 · Altares, T1 2026</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">3 actions pour ce mois</div>
+
+    <div class="action">
+      <div class="action-num">Action 01 · 30 minutes</div>
+      <h3>Demandez votre scoring bancaire</h3>
+      <p>Appelez votre conseiller et demandez-lui le dernier scoring ou la notation qu'il a sur votre entreprise. Vous avez le droit de le connaître. Ce chiffre influence vos conditions de crédit, vos garanties, et parfois l'accès au financement tout court.</p>
+      <p>La plupart des dirigeants ne l'ont jamais vu. Et il est mis à jour à chaque exercice sans que personne ne vous en informe.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 02 · 20 minutes</div>
+      <h3>Calculez votre taux d'endettement réel</h3>
+      <p>Additionnez toutes vos dettes financières — emprunts, découverts autorisés, crédit-bail. Divisez par vos fonds propres. Au-delà de 1, votre banque commence à regarder différemment. Au-delà de 2, elle regarde avec prudence.</p>
+      <p>Ce ratio, votre banquier l'a calculé. Vous devriez l'avoir calculé aussi — avant lui.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 03 · 15 minutes</div>
+      <h3>Mesurez votre autonomie financière en mois</h3>
+      <p>Trésorerie disponible divisée par charges fixes mensuelles. Le résultat est votre autonomie en mois si l'activité s'arrête. En dessous de 2, un choc non prévu met la structure sous tension. Au-dessus de 4, vous avez la marge pour décider sans urgence.</p>
+      <p>Ce n'est pas un ratio comptable. C'est un ratio de résistance. Il dit ce que votre bilan annuel ne dit jamais.</p>
+    </div>
+
+    <div class="cession-block">
+      <div class="eyebrow gold">Préparer la transmission</div>
+      <h3>Votre entreprise est-elle cédable&nbsp;?</h3>
+
+      <div class="cession-stats">
+        <div class="cstat">
+          <div class="cnum">450&nbsp;000</div>
+          <div class="clabel">dirigeants à la retraite d'ici 2030</div>
+        </div>
+        <div class="cstat">
+          <div class="cnum">42&nbsp;%</div>
+          <div class="clabel">des cessions échouent faute de repreneur</div>
+        </div>
+        <div class="cstat">
+          <div class="cnum">20–35&nbsp;%</div>
+          <div class="clabel">de décote sur les dossiers non préparés</div>
+        </div>
+      </div>
+
+      <p>La cédabilité ne se décrète pas le jour où vous décidez de vendre. Elle se construit — en général sur 3 à 7 ans — à travers six dimensions que ni votre expert-comptable ni votre banquier ne lisent en routine.</p>
+
+      <p>Le diagnostic IRD™ Cédabilité vous donne une réponse en 6 questions et 3 minutes. Votre indice sur 24 et les deux dimensions à travailler en priorité.</p>
+
+      <a class="cta-btn" href="https://irdcessionproxiconseil.lovable.app">Faire le diagnostic gratuit</a>
+      <span class="reassurance">Gratuit · Confidentiel · Sans relance commerciale automatique</span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Ce que votre banque lit, l'IRD™ le lit aussi.</h3>
+    <p>Et il vous dit exactement où vous en êtes — avant que l'accès au crédit se ferme ou que la question devienne urgente.</p>
+    <a href="https://proxiconseil.fr">Découvrir l'IRD™</a>
+  </div>
+
+  <div class="footer">
+    <strong>Sylvie Godereaux · Proxi Conseil IRD™</strong>
+    <div class="tag">Vos chiffres en savent plus que vous ne croyez.</div>
+    <a href="https://proxiconseil.fr">proxiconseil.fr</a> &nbsp;·&nbsp; <a href="#">Se désabonner</a>
+  </div>
+
+</div>
+</body>
+</html>
