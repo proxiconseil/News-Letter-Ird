@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxi Conseil · IRD™ La Newsletter N°5</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f2ede4;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a2744;
+    line-height: 1.55;
+  }
+  .wrapper {
+    max-width: 640px;
+    margin: 24px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(26, 26, 46, 0.08);
+  }
+  .header {
+    background: #1a2744;
+    color: #fff;
+    padding: 32px 36px 28px 36px;
+    position: relative;
+  }
+  .header .brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    margin: 0 0 4px 0;
+  }
+  .header .sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(240,236,227,0.55);
+    text-transform: uppercase;
+  }
+  .header .issue {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    text-align: right;
+  }
+  .header .issue .num {
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    color: #e8614a;
+  }
+  .header .issue .date {
+    font-size: 12px;
+    color: rgba(240,236,227,0.55);
+  }
+  .banner {
+    background: #0d1628;
+    color: rgba(240,236,227,0.6);
+    padding: 12px 36px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .banner .dot {
+    color: #e8614a;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 36px 24px 12px 24px;
+    gap: 12px;
+    background: #faf8f4;
+    border-bottom: 1px solid rgba(184,146,74,0.2);
+  }
+  .stat {
+    flex: 1 1 170px;
+    text-align: center;
+    padding: 18px 10px;
+  }
+  .stat .num {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .stat .num.violet { color: #1a2744; }
+  .stat .num.coral  { color: #e8614a; }
+  .stat .num.dark   { color: #1a2744; }
+  .stat .label {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1a2744;
+  }
+  .stat .source {
+    font-size: 10.5px;
+    color: #7a8090;
+    margin-top: 4px;
+  }
+  .section { padding: 32px 36px; }
+  .section + .section { border-top: 1px solid rgba(184,146,74,0.18); }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #e8614a;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .eyebrow.coral { color: #1a2744; }
+  h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: -.3px;
+    color: #1a2744;
+    font-family: 'Syne', sans-serif;
+  }
+  h2.big { font-size: 24px; }
+  p { font-size: 15px; margin: 0 0 14px 0; color: #4a5060; }
+  p.lead { font-size: 15.5px; color: #1a2744; font-weight: 500; }
+  .edito p { font-size: 15.5px; }
+  .signature {
+    font-style: italic;
+    color: #7a8090;
+    font-size: 14px;
+    margin-top: 18px;
+  }
+  .callout {
+    border-left: 3px solid #e8614a;
+    background: #faf8f4;
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 22px 0 10px 0;
+  }
+  .callout p { margin: 0; font-size: 15px; color: #1a2744; }
+  .callout strong { color: #1a2744; }
+  .hero-number {
+    background: #1a2744;
+    color: #fff;
+    padding: 30px 28px;
+    border-radius: 4px;
+    margin: 0 0 20px 0;
+  }
+  .hero-number .giant {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: #e8614a;
+    letter-spacing: -3px;
+  }
+  .hero-number .giant .unit {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .hero-number .caption {
+    font-size: 15px;
+    color: rgba(240,236,227,0.7);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .terrain-block {
+    background: #fff6f1;
+    border: 1px solid #ffd9c7;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .terrain-block .tag {
+    display: inline-block;
+    background: #e8502c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .terrain-block p { font-size: 14.5px; color: #3a2414; margin: 0; }
+  .terrain-block p.todo { font-style: italic; color: #b8452a; }
+  .action {
+    padding: 22px 24px;
+    background: #faf8f4;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(184,146,74,0.2);
+  }
+  .action-num {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e8614a;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .action h3 {
+    font-size: 17px;
+    margin: 0 0 10px 0;
+    color: #1a2744;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -.2px;
+  }
+  .action p { font-size: 14.5px; margin-bottom: 10px; }
+  .action p:last-child { margin-bottom: 0; }
+  .action .time {
+    font-size: 12px;
+    color: #7a8090;
+    font-weight: 600;
+  }
+  .cta {
+    background: #1a2744;
+    padding: 38px 36px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+  }
+  .cta p {
+    color: rgba(240,236,227,0.65);
+    font-size: 14.5px;
+    margin: 0 0 22px 0;
+  }
+  .cta a {
+    display: inline-block;
+    background: #e8614a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  .footer {
+    background: #0d1628;
+    padding: 26px 36px;
+    color: rgba(240,236,227,0.5);
+    font-size: 12.5px;
+    text-align: center;
+  }
+  .footer strong { color: #fff; font-family: Syne, sans-serif; letter-spacing: .05em; }
+  .footer .tag {
+    color: rgba(240,236,227,0.6);
+    font-style: italic;
+    margin: 8px 0 14px 0;
+    font-size: 13px;
+  }
+  .footer a { color: rgba(240,236,227,0.5); text-decoration: underline; }
+  .sources {
+    font-size: 12px;
+    color: #7a8090;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="brand">Proxi Conseil</div>
+    <div class="sub">IRD™ · La Newsletter</div>
+    <div class="issue">
+      <div class="num">N°5</div>
+      <div class="date">Août 2026</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <span class="dot">●</span> Édition estivale : l'effet domino, quand un ratio qui se dégrade en entraîne un autre
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num violet">31%</div>
+      <div class="label">Des dirigeants de TPE ne partent pas en vacances cet été</div>
+      <div class="source">Ifop pour Fiducial, baromètre TPE, juin 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num coral">45%</div>
+      <div class="label">Des dirigeants placent la trésorerie en tête de leurs priorités pour la rentrée</div>
+      <div class="source">Ifop pour Fiducial, baromètre TPE, juin 2026</div>
+    </div>
+    <div class="stat">
+      <div class="num dark">42%</div>
+      <div class="label">De risque de défaillance en plus quand un retard de paiement dépasse 60 jours</div>
+      <div class="source">Banque de France</div>
+    </div>
+  </div>
+
+  <div class="section edito">
+    <div class="eyebrow">Édito</div>
+    <h2>Vous ne partez pas en vacances. Ce n'est pas un manque de temps.</h2>
+    <p>31% des dirigeants de TPE restent cet été. 27% d'entre eux le disent sans détour : question de moyens, pas d'organisation, pas de choix personnel.</p>
+    <p>Ce mois-ci, une édition sur l'effet domino : comment un ratio qui se dégrade discrètement en entraîne un autre, jusqu'à ce que la chaîne devienne visible pour tout le monde, y compris votre banquier.</p>
+    <p class="signature">Sylvie Godereaux, Proxi Conseil</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Décryptage du mois</div>
+    <h2 class="big">L'effet domino, maillon par maillon</h2>
+
+    <p class="lead">31% des dirigeants de TPE ne partent pas en vacances cet été. 45% arrivent à la rentrée avec la trésorerie en tête de leurs priorités. Ces deux chiffres décrivent la même trajectoire, à deux moments différents.</p>
+
+    <p>Derrière ces chiffres, une chaîne se déroule maillon après maillon, presque toujours invisible tant qu'elle n'est pas complète.</p>
+
+    <p><strong>1. Un retard qui semble mineur.</strong> Le délai réel entre votre facturation et votre encaissement se creuse sans bruit, mois après mois. Vous le voyez au final sur votre compte en banque, jamais sur une moyenne annuelle qui lisse les pics. Un retard de paiement augmente déjà le risque de défaillance de 25%.</p>
+
+    <p><strong>2. Une marge qui recule sans bruit.</strong> Une marge qui perd deux points passe inaperçue sur un trimestre. Elle se voit sur six mois. Votre œil s'habitue à la baisse plus vite que votre trésorerie ne s'y adapte.</p>
+
+    <p><strong>3. Un dirigeant qui absorbe le choc.</strong> Vous êtes l'actif le plus exposé de votre entreprise, et le seul qu'aucun bilan ne mesure. Une absence de deux semaines révèle ce qui tient sans vous, et ce qui casse. Votre énergie pèse sur la structure autant qu'un ratio de trésorerie.</p>
+
+    <div class="callout">
+      <p><strong>Ce que cela signifie pour vous :</strong> un ratio qui se dégrade n'est jamais isolé. Il en entraîne un autre, puis un troisième, jusqu'à ce que la chaîne devienne visible, souvent trop tard pour la casser sans douleur.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow coral">Le chiffre qui dérange</div>
+
+    <div class="hero-number">
+      <div class="giant">27<span class="unit">%</span></div>
+      <div class="caption">Des dirigeants de TPE qui ne partent pas en vacances cet été le disent sans détour : c'est une question de moyens, pas de choix personnel.</div>
+    </div>
+
+    <p>Ce chiffre n'est pas un signe de dévouement. C'est un symptôme. Quand votre trésorerie ne supporte pas votre absence, elle ne supportait déjà plus grand chose avant l'été.</p>
+
+    <p>La vigilance arrive presque toujours après le signal, rarement avant. C'est précisément ce que montre le deuxième chiffre de cette édition : à la rentrée, la trésorerie redevient la priorité numéro un pour près d'un dirigeant de TPE sur deux.</p>
+
+    <div class="terrain-block">
+      <span class="tag">Vu sur le terrain</span>
+      <p>Un dirigeant me disait qu'il partait une semaine, même si sa trésorerie était sous tension. Ses factures clients venaient d'être envoyées, pas encore encaissées. Le premier semestre avait été si tendu qu'il avait besoin de cette semaine, quel qu'en soit le prix. Ce n'est pas de l'inconscience. C'est un choix fait les yeux ouverts, entre un compte qui respire mal et un dirigeant qui n'en pouvait plus. Les deux se tenaient en même temps.</p>
+    </div>
+
+    <p class="sources">Sources : Ifop pour Fiducial, baromètre des TPE, 84e vague, juin 2026 · Banque de France</p>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">3 actions pour ce mois</div>
+
+    <div class="action">
+      <div class="action-num">Action 01 · 20 minutes</div>
+      <h3>Isolez votre délai réel, mois par mois</h3>
+      <p>Prenez vos trois dernières factures clients importantes. Notez la date d'émission et la date d'encaissement réel. Calculez l'écart en jours pour chacune.</p>
+      <p>Une moyenne annuelle masque les pics. Ce sont les pics qui vous mettent sous tension, pas la moyenne.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 02 · 30 minutes</div>
+      <h3>Comparez votre marge sur six mois, pas sur le trimestre</h3>
+      <p>Reprenez votre marge des six derniers mois, mois par mois. Une baisse de deux points sur un seul trimestre passe inaperçue. Sur six mois, la tendance apparaît.</p>
+      <p>Si la marge recule alors que le chiffre d'affaires tient, c'est le signal à regarder avant tout autre.</p>
+    </div>
+
+    <div class="action">
+      <div class="action-num">Action 03 · Le temps d'un vrai week end</div>
+      <h3>Testez ce qui tient sans vous</h3>
+      <p>Posez deux jours pleins, sans mail ni téléphone, avant la fin de l'été. Observez ce qui a demandé votre intervention à votre retour, et ce qui a tenu sans vous.</p>
+      <p>Ce test vaut autant qu'un ratio. Il vous dit ce que votre structure peut encaisser en votre absence, avant que ce ne soit un imprévu qui vous l'apprenne.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Vos vacances et votre trésorerie parlent déjà.</h3>
+    <p>L'IRD™ lit ce qu'elles disent vraiment de votre entreprise, avant qu'un été sous tension ne devienne une rentrée sous pression.</p>
+    <a href="https://proxiconseil.fr">Découvrir l'IRD™</a>
+  </div>
+
+  <div class="footer">
+    <strong>Sylvie Godereaux · Proxi Conseil IRD™</strong>
+    <div class="tag">Vos chiffres en savent plus que vous ne croyez.</div>
+    <a href="https://proxiconseil.fr">proxiconseil.fr</a> &nbsp;·&nbsp; <a href="#">Se désabonner</a>
+  </div>
+
+</div>
+</body>
+</html>
